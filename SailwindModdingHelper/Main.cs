@@ -10,7 +10,7 @@ using Log = UnityModManagerNet.UnityModManager.Logger;
 
 namespace SailwindModdingHelper
 {
-    public static class Main
+    internal static class Main
     {
         public static bool Load(UnityModManager.ModEntry modEntry)
         {

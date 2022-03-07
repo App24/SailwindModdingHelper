@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace SailwindModdingHelper.Patches
 {
-    public static class SunPatches
+    internal static class SunPatches
     {
         [HarmonyPatch(typeof(Sun), "Start")]
         public static class StartPatch
@@ -16,8 +16,7 @@ namespace SailwindModdingHelper.Patches
             [HarmonyPostfix]
             public static void Postfix()
             {
-                PlayerClimb component = GameObject.FindObjectOfType<PlayerClimb>();
-                Utils.SetPlayerController((CharacterController)Traverse.Create(component).Field("controller").GetValue());
+                Utils.SetPlayerController(Refs.charController);
             }
         }
     }
